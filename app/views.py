@@ -1,10 +1,26 @@
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 from app.models import Libro
 
 #en general se devuelve datos Json o xml
-def index():
-    return '<h1> Hola mundo </h1>'
 
+def index():
+   return render_template('index.html')
+
+#para la visualización de los template
+def registro():
+    return render_template('Registro.html')
+
+def inicio_sesion():
+    return render_template('InicioSesion.html')
+
+def libro():
+   return render_template('Libro.html')
+
+def edicion():
+   return render_template('Edicion.html')
+
+
+#---------------------------------------
 def get_all():
     objeto = Libro.gett_all()
     list_objeto = [obj.serialize() for obj in objeto]
@@ -53,3 +69,4 @@ def delete_objeto(objeto_id):
         return jsonify({'message':'No se elimino el libro'}),404
     obj.delete()
     return jsonify({'message':'Libro eliminado'})
+

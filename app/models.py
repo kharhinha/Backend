@@ -72,6 +72,12 @@ class Libro:
         cursor.execute("DELETE FROM libro WHERE id_objeto = %s", (self.id_objeto,))#modificar objeto
         db.commit()
         cursor.close()
+
+
+    
+  
+
+        
     
   
 
